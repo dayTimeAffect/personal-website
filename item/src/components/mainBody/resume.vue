@@ -2,7 +2,6 @@
     <div id="resume">
         <Dialog v-if="dialog" v-bind:dialogArguments="dialogArguments"></Dialog>
         <div class="userInfo">
-            <div>dialog</div>
             <div class="userId">邓俊</div>
             <div class="headPortrait">
                 <img src="../../assets/user.jpg" alt="个人照片">
@@ -35,8 +34,18 @@
                         <p style="font-size: 16px;color: #333;padding-bottom: 12px">web前端实习生</p>
                         <ul class="content">
                             <li>编写项目组所使用的JS组件使用手册</li>
-                            <li>参与项目成都门户2.0的后期剩余功能关于前端的部分，指导后端实习生对JS组件的使用</li>
+                            <li>参与项目关于前端的部分，指导后端实习生对JS组件的使用</li>
                             <li>参与项目的公司内测，对部分前端bug进行更改</li>
+                        </ul>
+                    </div>
+                    <div class="occupationalHistoryOne">
+                        <span style="font-size: 24px;color: #000;font-weight: 600">上海德拓信息技术股份有限公司</span><span style="color: #959496;font-size: 18px;margin-left: 8px">2019年7月至今</span>
+                        <p style="font-size: 16px;color: #333;padding-bottom: 12px">前端开发工程师</p>
+                        <ul class="content">
+                            <li>参与PC端的项目开发，配合项目经理和UI设计师，依据产品需求完成高质量的web前端的开发和维护</li>
+                            <li>根据用户的需求参与项目需求的分析</li>
+                            <li>根据公司下达的任务，负责项目前端页面的编码，对开发的代码进行集成测试</li>
+                            <li>完成项目功能使用手册</li>
                         </ul>
                     </div>
                 </div>
@@ -45,18 +54,38 @@
                 <p><span>专业技能</span></p>
                 <div>
                     <ul class="content">
-                        <li>熟练掌握HTML5、CSS3、JavaScript等前端技术，完成网页静态布局以及实现页面的交互，提升用户体验</li>
-                        <li>熟练掌握JQuery框架，实现页面的交互效果</li>
-                        <li>熟悉使用VUE全家桶构建项目工程</li>
-                        <li>熟悉使用less、sass等css预处理语言</li>
-                        <li>熟悉bootstrap、iView前端框架</li>
+                        <li>精通掌握了HTML、CSS、Javascript等Web开发技术，熟悉页面结构和布局，有良好的代码编写习惯</li>
+                        <li>熟练掌握H5、CSS3的新属性</li>
+                        <li>熟悉使用jQuery、iconfonts等js类库，应用JavaScript或jQuery等实现页面动态效果以及交互效果</li>
+                        <li>熟练使用vue进行组件和mvvm开发</li>
+                        <li>熟练使用less预处理语言，提高工作效率以及代码的复用性和可维护性</li>
                         <li>了解ES6、nodeJs等</li>
-                        <li>熟悉使用git</li>
+                        <li>了解使用git、github</li>
+                        <li>了解echarts、熟悉使用bootstrap、iView、layui类库。</li>
                     </ul>
                 </div>
             </div>
             <div class="project">
                 <p><span>项目经验</span></p>
+                <div class="content">
+                    <span style="font-size: 24px;color: #000;font-weight: 600">贵阳市公安交通管理局数据铁笼大数据平台二期项目</span><span style="color: #959496;font-size: 18px;margin-left: 8px">2019年7月至</span>
+                    <p style="font-size: 16px;color: #333;padding-bottom: 12px">贵阳交管项目组</p>
+                    <ul>
+                        <li>项目介绍：
+                            <ul class="twoText">
+                            </ul>
+                        </li>
+                        <li>我的职责：
+                            <ul class="twoText">
+                                <li>负责按UI所给设计图，重写已完成功能样式，负责将新样式风格应用在新功能页面的编写上；</li>
+                                <li>通过JavaScript结合jQuery完成动态交互效果的编写；</li>
+                                <li>负责页面交互效果、完成页面跳转等逻辑；</li>
+                                <li>负责和后台协商解决页面数据渲染、返回等问题；</li>
+                                <li>负责修改因需求变动、基于一期项目的高耦合、数据变动等等因素所产生的BUG</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
                 <div class="content">
                     <span style="font-size: 24px;color: #000;font-weight: 600">应用数据管理系统</span><span style="color: #959496;font-size: 18px;margin-left: 8px">2018年11月至2018年12月</span>
                     <p style="font-size: 16px;color: #333;padding-bottom: 12px">实习期练手项目</p>
@@ -87,7 +116,7 @@
         name: "resume",
         data(){
           return {
-              dialog:true,
+              dialog:false,
               dialogArguments:{
                   imgUrl:["user.jpg","user1.jpg","user2.jpg"]
               }
@@ -193,6 +222,9 @@
                         .content{
                             font-size: 16px;
                             color: @conColor;
+                            .twoText{
+                                text-indent: 2em;
+                            }
                         }
                     }
                 }
@@ -245,6 +277,9 @@
                     ul{
                         font-size: 16px;
                         color: @conColor;
+                    }
+                    .twoText{
+                        text-indent: 2em;
                     }
                 }
             }
