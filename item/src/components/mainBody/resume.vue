@@ -280,7 +280,6 @@
                     }
                     .twoText{
                         text-indent: 2em;
-                        
                     }
                 }
             }
