@@ -12,8 +12,6 @@
 
     </div>
 </template>
-
-
 <script>
     import headnav from './views/head'
     import mainbody from './views/mainbody'

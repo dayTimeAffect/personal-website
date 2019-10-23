@@ -1,13 +1,53 @@
 <template>
     <div id="production">
-        <div>
-            <ul>
-                <li>人脸识别时用到的扫描图</li>
-                <li>立体感按钮</li>
-            </ul>
-        </div>
-        <cssShowOne></cssShowOne>
-        <cssShowTwo></cssShowTwo>
+        <Layout>
+            <Sider width="240">
+                <Menu active-name="css" :open-names=MenuOpennames :accordion=MenuAccordion v-on:on-select="selectMenu">
+                    <Submenu name="css">
+                        <template slot="title">
+                            <Icon type="logo-twitter" />
+                            CSS小效果
+                        </template>
+                        <MenuItem name="cssShowOne">人脸识别时用到的扫描图</MenuItem>
+                        <MenuItem name="cssShowTwo">立体感按钮</MenuItem>
+                    </Submenu>
+                    <Submenu name="2">
+                        <template slot="title">
+                            <Icon type="md-code-working" />
+                            JS小技巧代码
+                        </template>
+                    </Submenu>
+                    <Submenu name="4">
+                        <template slot="title">
+                            <Icon type="ios-cog" />
+                            作品
+                        </template>
+                    </Submenu>
+                </Menu>
+            </Sider>
+
+            <Layout>
+                <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}">
+                    <Breadcrumb>
+                        <BreadcrumbItem>{{BreadcrumbItem1}}</BreadcrumbItem>
+                        <BreadcrumbItem>{{BreadcrumbItem2}}</BreadcrumbItem>
+                        <BreadcrumbItem>{{BreadcrumbItem3}}</BreadcrumbItem>
+                    </Breadcrumb>
+                </Header>
+                <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
+                    <div v-if=Content.cssShowOne>
+                        <cssShowOne></cssShowOne>
+                    </div>
+                    <div v-if=Content.cssShowTwo>
+                        <cssShowTwo></cssShowTwo>
+                    </div>
+                </Content>
+            </Layout>
+
+        </Layout>
+
+
+
     </div>
 </template>
 
@@ -16,6 +56,32 @@
     import cssShowTwo from './../../cssShowComponents/cssShowTwo'
     export default {
         name: "production",
+        data(){
+            return {
+                MenuAccordion:true,
+                MenuOpennames:['css'],
+                Content:{
+                    cssShowOne:false,
+                    cssShowTwo:false,
+                },
+                cssShowContent:{
+                    cssShowOne:'人脸识别时用到的扫描图',
+                    cssShowTwo:'立体感按钮',
+                },
+                BreadcrumbItem1:'我的作品',
+                BreadcrumbItem2:'CSS小作品',
+                BreadcrumbItem3:'人脸识别时用到的扫描图',
+            }
+        },
+        methods:{
+          selectMenu(name){
+              for (let contentKey in this.Content) {
+                  this.Content[contentKey] = false
+              }
+              this.Content[name] = true
+              this.BreadcrumbItem3 = this.cssShowContent[name]
+          }
+        },
         components:{
             cssShowOne:cssShowOne,
             cssShowTwo:cssShowTwo,
