@@ -15,7 +15,7 @@
                     <Icon type="ios-photos" />
                     我的作品
                 </MenuItem>
-                <MenuItem name="4">
+                <MenuItem name="4" to="/learningNotes">
                     <Icon type="ios-planet" />
                     学习笔记
                 </MenuItem>

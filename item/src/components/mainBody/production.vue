@@ -10,6 +10,8 @@
                         </template>
                         <MenuItem name="cssShowOne">人脸识别时用到的扫描图</MenuItem>
                         <MenuItem name="cssShowTwo">立体感按钮</MenuItem>
+                        <MenuItem name="cssShowThree">换色器</MenuItem>
+                        <MenuItem name="cssShowFour">立方体旋转</MenuItem>
                     </Submenu>
                     <Submenu name="2">
                         <template slot="title">
@@ -41,6 +43,12 @@
                     <div v-if=Content.cssShowTwo>
                         <cssShowTwo></cssShowTwo>
                     </div>
+                    <div v-if=Content.cssShowThree>
+                        <cssShowThree></cssShowThree>
+                    </div>
+                    <div v-if=Content.cssShowFour>
+                        <cssShowFour></cssShowFour>
+                    </div>
                 </Content>
             </Layout>
 
@@ -54,6 +62,8 @@
 <script>
     import cssShowOne from './../../cssShowComponents/cssShowOne'
     import cssShowTwo from './../../cssShowComponents/cssShowTwo'
+    import cssShowThree from './../../cssShowComponents/cssShowThree'
+    import cssShowFour from './../../cssShowComponents/cssShowFour'
     export default {
         name: "production",
         data(){
@@ -67,6 +77,8 @@
                 cssShowContent:{
                     cssShowOne:'人脸识别时用到的扫描图',
                     cssShowTwo:'立体感按钮',
+                    cssShowThree:'换色器',
+                    cssShowFour:'立方体旋转',
                 },
                 BreadcrumbItem1:'我的作品',
                 BreadcrumbItem2:'CSS小作品',
@@ -85,6 +97,8 @@
         components:{
             cssShowOne:cssShowOne,
             cssShowTwo:cssShowTwo,
+            cssShowThree:cssShowThree,
+            cssShowFour:cssShowFour,
         }
     }
 </script>
