@@ -1,8 +1,9 @@
 <template>
     <div id="resume">
         <Dialog v-if="dialog" v-bind:dialogArguments="dialogArguments"></Dialog>
-        <div class="userInfo">
-            <div class="userId">邓俊</div>
+        <div class="userInfo" @click="testVuex_1">
+            <div class="userId">{{this.$store.state.name}} ---- {{this.$store.getters.newName}}</div>
+            <div class="userId">{{this.name}} ---- {{this.newName}}</div>
             <div class="headPortrait">
                 <img src="../../assets/user.jpg" alt="个人照片">
             </div>
@@ -20,7 +21,7 @@
                 <p>信息与计算科学(本科)</p>
             </div>
         </div>
-        <div class="userSkill">
+        <div class="userSkill" @click="testAsyncVuex_1">
             <div class="userSkillHead">
                 <span><i class="fa fa-print" aria-hidden="true"></i><Button type="text" size="large">打印简历</Button></span>
                 <span><i class="fa fa-envelope-o" aria-hidden="true"></i><Button type="text" size="large">给我发邮件</Button></span>
@@ -115,6 +116,7 @@
 </template>
 
 <script>
+    import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
     import dialog from './../FuncModule/dialog'
     export default {
         name: "resume",
@@ -126,8 +128,45 @@
               }
           }
         },
+        methods:{
+            ...mapMutations([
+                "changeState"
+            ]),
+            ...mapActions([
+                "asyncChangeState"
+            ]),
+            testVuex(){
+                this.$store.commit('changeState',{name:'dj'})
+            },
+            testAsyncVuex(){
+                this.$store.dispatch('asyncChangeState',{name:'DJ'})
+            },
+            testVuex_1(){
+                this.changeState({name:'dj'})
+            },
+            testAsyncVuex_1(){
+                this.asyncChangeState({name:'DJ'})
+            },
+
+        },
+        computed:{
+            ...mapState([
+                "name",
+                "age"
+            ]),
+            ...mapGetters([
+                "newName"
+            ]),
+        },
         components:{
             Dialog:dialog,
+        },
+        mounted() {
+            console.log(this.name);
+            console.log(this.age);
+            console.log(this.newName);
+            console.log(this.changeState);
+            console.log(this.asyncChangeState);
         }
     }
 </script>
@@ -150,7 +189,6 @@
             background-color: @bgbule;
 
             .userId{
-                width: 100px;
                 height: 90px;
                 font-size: 32px;
                 line-height: 64px;
